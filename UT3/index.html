@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Grupo 6 - HTML/Javascript/Bulma</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="icons/css/all.min.css">
+
+    <!-- Estilos. -->
+    <link rel="stylesheet" href="styles/global-style.css">
+    <link rel="stylesheet" href="styles/mobile-style.css">
+    <link rel="stylesheet" href="styles/tablet-style.css">
+    <link rel="stylesheet" href="styles/desktop-style.css">
+
+    <link rel="stylesheet" href="styles/special-rules.css">
+    <link rel="stylesheet" href="styles/dark-mode.css">
+
+    <!-- Script JS. -->
+    <script src="app.js" defer></script>
+</head>
+
+<!-- Maquetación con metodología BEM (Block__Element--Modifier). -->
+
+<body>
+    <!-- Encabezado. -->
+    <header class="header">
+        <!-- Título. -->
+        <h1 class="header__title">
+            <i class="fa-solid fa-clipboard-list"></i>
+            GESTOR DE TAREAS
+        </h1>
+
+        <!-- Número de grupo. -->
+        <h2 class="header__group-name">GRUPO 6 - N2</h2>
+
+        <!-- Botón de agregar tarea. -->
+        <button class="header__add-task-button">
+            <i class="fa-solid fa-plus"></i>
+            <p class="header__add-task-button--text">
+                AÑADIR TAREA
+            </p>
+        </button>
+
+        <!-- Botón Cambio de modo (light/dark). -->
+        <button class="header__switch-mode-button button is-rounded">
+            <i class="fa-solid fa-sun"></i>
+        </button>
+    </header>
+
+    <!-- Main. -->
+    <main class="main">
+        <!-- Columna Backlog. -->
+        <section class="task-column task-column--backlog">
+            <h3 class="task-column__title">
+                BACKLOG
+                <i class="fa-solid fa-database"></i>
+            </h3>
+
+            <div class="task-column__container task-column__container--backlog"></div>
+
+            <button class="task-column__expand-button button is-rounded is-warning">
+                <i class="fa-solid fa-arrows-up-down"></i>
+            </button>
+        </section>
+
+        <!-- Columna To Do. -->
+        <section class="task-column task-column--to-do">
+            <h3 class="task-column__title">
+                TO DO
+                <i class="fa-solid fa-list"></i>
+            </h3>
+
+            <div class="task-column__container task-column__container--to-do"></div>
+
+            <button class="task-column__expand-button button is-rounded is-warning">
+                <i class="fa-solid fa-arrows-up-down"></i>
+            </button>
+        </section>
+
+        <!-- Columna In Progress. -->
+        <section class="task-column task-column--in-progress">
+            <h3 class="task-column__title">
+                IN PROGRESS
+                <i class="fa-solid fa-spinner"></i>
+            </h3>
+
+            <div class="task-column__container task-column__container--in-progress"></div>
+
+            <button class="task-column__expand-button button is-rounded is-warning">
+                <i class="fa-solid fa-arrows-up-down"></i>
+            </button>
+        </section>
+
+        <!-- Columna Blocked. -->
+        <section class="task-column task-column--blocked">
+            <h3 class="task-column__title">
+                BLOCKED
+                <i class="fa-solid fa-lock"></i>
+            </h3>
+
+            <div class="task-column__container task-column__container--blocked"></div>
+
+            <button class="task-column__expand-button button is-rounded is-warning">
+                <i class="fa-solid fa-arrows-up-down"></i>
+            </button>
+        </section>
+
+        <!-- Columna Done. -->
+        <section class="task-column task-column--done">
+            <h3 class="task-column__title">
+                DONE
+                <i class="fa-solid fa-square-check"></i>
+            </h3>
+
+            <div class="task-column__container task-column__container--done"></div>
+
+            <button class="task-column__expand-button button is-rounded is-warning">
+                <i class="fa-solid fa-arrows-up-down"></i>
+            </button>
+        </section>
+    </main>
+
+    <!-- Modal Editar tarea y Agregar tarea.
+
+    Hay dos modos: Editar tarea y Agregar tarea.
+    Algunas cosas se ocultarán en un modo u en otro. -->
+    <aside class="task-modal down">
+        <!-- Títulos. -->
+        <h3 class="task-modal__title task-modal__title--change-task">
+            <i class="fa-solid fa-user-pen"></i>
+            EDITAR TAREA
+        </h3>
+
+        <h3 class="task-modal__title task-modal__title--add-task">
+            <i class="fa-solid fa-plus"></i>
+            AGREGAR TAREA
+        </h3>
+
+        <!-- Formulario. -->
+        <form class="task-form">
+            <!-- Título. -->
+            <div class="task-form__input">
+                <label>Título</label>
+                <input id="title" type="text" placeholder="TÍTULO">
+            </div>
+
+            <!-- Descripción. -->
+            <div class="task-form__input">
+                <label>Descripción</label>
+                <input id="description" type="text" placeholder="DESCRIPCIÓN">
+            </div>
+
+            <!-- Asignado. -->
+            <div class="task-form__input">
+                <label>Asignado a</label>
+                <input id="assignedTo" type="text" placeholder="ASIGNADO A">
+            </div>
+
+            <!-- Prioridad. -->
+            <div class="task-form__input">
+                <label>Prioridad</label>
+                <select id="priority">
+                    <option>High</option>
+                    <option>Medium</option>
+                    <option>Low</option>
+                </select>
+            </div>
+
+            <!-- Estado. -->
+            <div class="task-form__input">
+                <label>Estado</label>
+                <select id="status">
+                    <option>To Do</option>
+                    <option>In Progress</option>
+                    <option>Done</option>
+                </select>
+            </div>
+
+            <!-- Fecha límite. -->
+            <div class="task-form__input">
+                <label>Fecha límite</label>
+                <input id="endDate" type="date" placeholder="FECHA LÍMITE">
+            </div>
+
+
+            <!-- Botones. -->
+
+            <!-- Para agregar tarea. -->
+            <button class="task-form__button task-form__button--cancel task-form__button--cancel-add-task">
+                <i class="fa-solid fa-arrow-left"></i>
+                CANCELAR
+            </button>
+
+            <button class="task-form__button task-form__button--accept task-form__button--accept-add-task">
+                <i class="fa-solid fa-circle-check"></i>
+                ACEPTAR
+            </button>
+
+            <!-- Para editar tarea. -->
+            <button class="task-form__button task-form__button--delete task-form__button--delete-change-task">
+                <i class="fa-solid fa-circle-xmark"></i>
+                ELIMINAR
+            </button>
+
+            <button class="task-form__button task-form__button--cancel task-form__button--cancel-change-task">
+                <i class="fa-solid fa-arrow-left"></i>
+                CANCELAR
+            </button>
+
+            <button class="task-form__button task-form__button--accept task-form__button--accept-change-task">
+                <i class="fa-solid fa-circle-check"></i>
+                ACEPTAR
+            </button>
+        </form>
+    </aside>
+</body>
+
+</html>

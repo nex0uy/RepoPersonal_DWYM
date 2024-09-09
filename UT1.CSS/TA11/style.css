@@ -1,0 +1,19 @@
+.elemR {
+    background-color: lightpink;
+    font-family: Verdana, DejaVu Sans, sans-serif;
+}
+
+.impar {
+    font-size: 24px;
+}
+
+#segundo {
+    color: blue;
+    font-size: 36px;
+}
+
+#verde {
+    background-color: lightgreen;
+    font-size: 24px;
+    font-weight: bold;
+}
